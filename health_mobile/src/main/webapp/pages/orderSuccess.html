@@ -70,7 +70,7 @@
                 axios.post("/order/findById.do?id=" + id).then((response) => {
                     //this.orderInfo = response.data.data;
                 if(response.data.flag){
-                    this.orderInfo = response.data.data;  //orderInfo双向绑定的数据，获得数据后渲染页面
+                    this.orderInfo = response.data.data;
                 }else{
                     this.$message.error(response.data.message);
                 }

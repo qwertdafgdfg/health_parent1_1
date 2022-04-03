@@ -13,13 +13,12 @@ import com.aliyuncs.profile.IClientProfile;
  * 短信发送工具类
  */
 public class SMSUtils {
-	public static final String VALIDATE_CODE = "SMS_183795615";//发送短信验证码 //两组短信模板里面。
+	public static final String VALIDATE_CODE = "SMS_183795615";//发送短信验证码
 	public static final String ORDER_NOTICE = "SMS_183795616";//体检预约成功通知
 	/**
 	 * 发送短信
-	 * @param  templateCode   官方指定的码。
-	 * @param phoneNumbers    手机号码
-	 * @param param			   本地传给阿里云的验证码。
+	 * @param phoneNumbers
+	 * @param param
 	 * @throws ClientException
 	 */
 	public static void sendShortMessage(String templateCode,String phoneNumbers,String param) throws ClientException{

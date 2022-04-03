@@ -42,6 +42,7 @@ public class OrderController {
                 result = orderService.order(map);//通过Dubbo远程调用服务实现在线预约业务处理
             }catch (Exception e){
                 e.printStackTrace();
+                return result;
             }
             if(result.isFlag()){
                 //预约成功，可以为用户发送短信

@@ -95,7 +95,7 @@
                         <el-table-column prop="remark" label="说明" align="center"></el-table-column>
                         <el-table-column label="操作" align="center">
                             <template slot-scope="scope">
-                                <el-button type="primary" size="mini" @click="">编辑</el-button>
+                                <el-button type="primary" size="mini">编辑</el-button>
                                 <el-button size="mini" type="danger">删除</el-button>
                             </template>
                         </el-table-column>
@@ -177,9 +177,7 @@
                                                                 :show-file-list="false"
                                                                 :on-success="handleAvatarSuccess"
                                                                 :before-upload="beforeAvatarUpload">
-                                                            <!‐‐用于上传图片预览‐‐>
                                                             <img v-if="imageUrl" :src="imageUrl" class="avatar">
-                                                            <!‐‐用于展示上传图标‐‐>
                                                             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                                                         </el-upload>
                                                     </el-form-item>
@@ -277,8 +275,8 @@
                     //为模型数据imageUrl赋值，用于页面图片预览
                     this.imageUrl = 'http://q5m9u9r0r.bkt.clouddn.com/' + response.data;
                     this.$message({
-                        message:response.message,
-                        type:response.flag ? 'success':'error'
+                        type:response.flag ? 'success':'error',
+                        message:response.message
                     });
                     //设置模型数据（图片名称），后续提交ajax请求时会提交到后台最终保存到数据库
                     this.formData.img = response.data;

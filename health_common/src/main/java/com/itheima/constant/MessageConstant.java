@@ -3,7 +3,6 @@ package com.itheima.constant;
  * 消息常量
  */
 public class MessageConstant {
-    //答: 方便统一管理,比如未来某个提示信息我们需要优化,可能好多地方都需要修改,我们未来可以快速的进行修改,方便统一管理
     public static final String DELETE_CHECKITEM_FAIL = "删除检查项失败";
     public static final String DELETE_CHECKITEM_SUCCESS = "删除检查项成功";
     public static final String ADD_CHECKITEM_SUCCESS = "新增检查项成功";

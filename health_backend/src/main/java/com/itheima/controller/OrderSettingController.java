@@ -32,12 +32,11 @@ public class OrderSettingController {
     @RequestMapping("/upload")
     public Result upload(@RequestParam("excelFile") MultipartFile excelFile){
         try {
-            //自己封装的POIUtils用来操作execl文件。
             List<String[]> list = POIUtils.readExcel(excelFile);//使用POI解析表格数据
             List<OrderSetting> data = new ArrayList<>();//对象被填充，然后将对象装入data集合
             for (String[] strings : list) {
                 String orderDate = strings[0];
-                String number = strings[1];   //一个bean是一行实体类。
+                String number = strings[1];
                 OrderSetting orderSetting = new OrderSetting(new Date(orderDate),Integer.parseInt(number));
                 data.add(orderSetting);
             }

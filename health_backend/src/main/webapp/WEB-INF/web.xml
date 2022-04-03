@@ -7,9 +7,6 @@
 
   <!--委派过滤器，用于整合其他框架-->
   <filter>
-<!--    DelegatingFilterProxy用于整合第三方框架-->
-<!--    整合Spring Security时过滤器的名称必须为springSecurityFilterChain，-->
-<!--    否则会抛出NoSuchBeanDefinitionException异常-->
     <!--整合spring security时，此过滤器的名称固定springSecurityFilterChain-->
     <filter-name>springSecurityFilterChain</filter-name>
     <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>

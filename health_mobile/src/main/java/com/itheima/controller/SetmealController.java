@@ -43,7 +43,7 @@ public class SetmealController {
     @RequestMapping("/findById")
     public Result findById(int id){
         try{
-            Setmeal setmeal = setmealService.findById(id);//Dubbo远程调用。
+            Setmeal setmeal = setmealService.findById(id);
             return new Result(true, MessageConstant.QUERY_SETMEAL_SUCCESS,setmeal);
         }catch (Exception e){
             e.printStackTrace();

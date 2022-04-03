@@ -116,17 +116,16 @@
                 //获取用户输入的手机号
                 var telephone = this.orderInfo.telephone;
                 //调用js方法，校验输入的手机号是否合法
-                if(!checkTelephone(telephone)){//  正则表达式的格式有问题。。
-                    //校验不通过，提示错误信息
-                    this.$message.error("请输入正确的手机号");
-                    return false;
-                }
+                // if(!checkTelephone(telephone)){//  正则表达式的格式有问题。。
+                //     //校验不通过，提示错误信息
+                //     this.$message.error("请输入正确的手机号");
+                //     return false;
+                // }
                 //在按钮上显示30秒倒计时效果
                 validateCodeButton = $("#validateCodeButton")[0];//锁定dom对象
                 clock = window.setInterval(doLoop,1000);//定时器方法，可以实现每隔指定的时间调用指定的方法
                 //发送ajax请求，为用户发送手机验证码
                 axios.post("/validateCode/send4Order.do?telephone=" + telephone).then((res) => {
-
                     if(!res.data.flag){
                     //短信验证码发送失败
                     this.$message.error(res.data.message);
@@ -158,7 +157,7 @@
             //发送ajax请求，根据套餐ID查询套餐信息，用于页面展示
             axios.post("/setmeal/findById.do?id=" + id).then((res) =>{
                 if(res.data.flag){
-                this.setmeal = res.data.data;//双向绑定的模型数据。
+                this.setmeal = res.data.data;
             }
         });
         }

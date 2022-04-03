@@ -34,7 +34,6 @@ public class ValidateCodeController {
         }
         //将验证码保存到redis（5分钟）
         jedisPool.getResource().setex(telephone + RedisMessageConstant.SENDTYPE_ORDER,300,validateCode.toString());
-        System.out.println(validateCode.toString());
         return new Result(true,MessageConstant.SEND_VALIDATECODE_SUCCESS);
     }
 

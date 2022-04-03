@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: com.alibaba:druid:1.0.9">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../Servers/apache-maven-3.6.3-bin/Maven/maven_repository/com/alibaba/druid/1.0.9/druid-1.0.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../../../../program_Soft/apache-maven-3.6.3/maven_repository/com/alibaba/druid/1.0.9/druid-1.0.9.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$PROJECT_DIR$/../../Servers/apache-maven-3.6.3-bin/Maven/maven_repository/com/alibaba/druid/1.0.9/druid-1.0.9-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../../../../program_Soft/apache-maven-3.6.3/maven_repository/com/alibaba/druid/1.0.9/druid-1.0.9-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../Servers/apache-maven-3.6.3-bin/Maven/maven_repository/com/alibaba/druid/1.0.9/druid-1.0.9-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../../../../program_Soft/apache-maven-3.6.3/maven_repository/com/alibaba/druid/1.0.9/druid-1.0.9-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

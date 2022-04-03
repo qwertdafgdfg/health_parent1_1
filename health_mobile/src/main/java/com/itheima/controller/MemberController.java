@@ -61,7 +61,7 @@ public class MemberController {
             response.addCookie(cookie);
             //将会员信息保存到Redis
             String json = JSON.toJSON(member).toString();
-            jedisPool.getResource().setex(telephone,60*30,json);//设置值以及过期时间。
+            jedisPool.getResource().setex(telephone,60*30,json);
 
             return new Result(true,MessageConstant.LOGIN_SUCCESS);
         }else{

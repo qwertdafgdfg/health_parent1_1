@@ -103,7 +103,6 @@
                                                         </template>
                                                     </template>
                                                 </template>
-<!--                                                必须大于今天才能被设置预约。-->
                                                 <button v-if="dayobject.day > today"
                                                         @click="handleOrderSet(dayobject.day)"
                                                         class="orderbtn">设置
@@ -145,7 +144,7 @@
 				//预约设置
                 handleOrderSet(day){
                     alert(this.formatDate(day.getFullYear(),day.getMonth()+1,day.getDate()));
-                    this.$prompt('请输入可预约人数', '预约设置', {   //这个弹框类似messagebox。
+                    this.$prompt('请输入可预约人数', '预约设置', {
                         confirmButtonText: '确定',
                         cancelButtonText: '取消',
                         inputPattern: /^[0-9]*[1-9][0-9]*$/,
@@ -255,13 +254,13 @@
                         this.days.push(dayobject);
                     }
                     
-                    this.leftobj = [
+                    /*this.leftobj = [
                         { date: 1, number: 120, reservations: 1 },
                         { date: 3, number: 120, reservations: 1 },
                         { date: 4, number: 120, reservations: 119 },
                         { date: 6, number: 120, reservations: 1 },
                         { date: 8, number: 120, reservations: 1 }
-                    ];
+                    ];*/
 
                     //发送ajax请求，根据当前页面对应的月份查询数据库，封装成相应结果赋值给leftobj模型数据，用于页面展示
                     axios.post("/ordersetting/getOrderSettingByMonth.do?date=" + this.currentYear + "-" + this.currentMonth).then((res) => {

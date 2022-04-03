@@ -19,7 +19,7 @@
     <!--配置哪些资源匿名可以访问（不登录也可以访问）-->
     <!--<security:http security="none" pattern="/pages/a.html"></security:http>
     <security:http security="none" pattern="/pages/b.html"></security:http>-->
-    <security:http security="none" pattern="/pages/**"></security:http>
+    <!--<security:http security="none" pattern="/pages/**"></security:http>-->
     <security:http security="none" pattern="/login.html"></security:http>
     <security:http security="none" pattern="/css/**"></security:http>
     <security:http security="none" pattern="/img/**"></security:http>
@@ -40,12 +40,7 @@
             asscess:指定所需的访问角色或者访问权限
         -->
         <!--只要认证通过就可以访问-->
-<!--        intercept‐url：定义一个拦截规则-->
-<!--        pattern：对哪些url进行权限控制-->
-<!--        access：在请求对应的URL时需要什么权限，默认配置时它应该是一个以逗号-->
-<!--        分隔的角色列表，-->
-<!--        请求的用户只需拥有其中的一个角色就能成功访问对应的URL-->
-        <security:intercept-url pattern="/pages/files/**"  access="isAuthenticated()" />
+        <security:intercept-url pattern="/pages/**"  access="isAuthenticated()" />
 
         <!--如果我们要使用自己指定的页面作为登录页面，必须配置登录表单.页面提交的登录表单请求是由框架负责处理-->
         <!--
@@ -75,11 +70,9 @@
 
     </security:http>
 
-    <!--配置认证管理器 认证管理器，用于处理认证操作-->
+    <!--配置认证管理器-->
     <security:authentication-manager>
-        <!--配置认证提供者  user‐service：用于获取用户信息，提供给authentication‐
-provider进行认证
-  这个引用的首字母好像必须小写。-->
+        <!--配置认证提供者   这个引用的首字母好像必须小写。-->
         <security:authentication-provider user-service-ref="springSecurityUserService">
             <!--
                     配置一个具体的用户，后期需要从数据库查询用户

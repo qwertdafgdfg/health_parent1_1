@@ -95,8 +95,8 @@
             //发送ajax请求，根据套餐ID查询套餐详细信息（包括套餐基本信息、套餐包含的检查组、检查组包含的检查项）
             axios.post("/setmeal/findById.do?id=" + id).then((response) => {
                 if(response.data.flag){
-                    this.setmeal = response.data.data;//双向绑定模型数据，用于填充页面数据。
-                    this.imgUrl = '../img/asset-ad.png';// + this.setmeal.img;
+                    this.setmeal = response.data.data;
+                    this.imgUrl = '../img/asset-ad.png' + this.setmeal.img;
                 }
             });
         }
