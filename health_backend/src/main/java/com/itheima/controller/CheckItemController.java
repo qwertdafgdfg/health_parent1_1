@@ -19,7 +19,6 @@ import java.util.List;
  * 检查项管理
  */
 
-//如果某个控制器类设计初衷就是返回json数据，那么该类可以使用简化方式 @RestCotroller
 @RestController
 @RequestMapping("/checkitem")
 public class CheckItemController {
@@ -29,7 +28,7 @@ public class CheckItemController {
     //新增检查项
     @PreAuthorize("hasAuthority('CHECKITEM_ADD')")//权限校验
     @RequestMapping("/add")
-    public Result add(@RequestBody CheckItem checkItem){   //接收表单的数据。
+    public Result add(@RequestBody CheckItem checkItem){
         try{
             checkItemService.add(checkItem);
         }catch (Exception e){

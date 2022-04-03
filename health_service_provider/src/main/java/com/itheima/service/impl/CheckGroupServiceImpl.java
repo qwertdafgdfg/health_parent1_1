@@ -9,8 +9,6 @@ import com.itheima.entity.QueryPageBean;
 import com.itheima.pojo.CheckGroup;
 import com.itheima.service.CheckGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
@@ -22,10 +20,9 @@ import java.util.Map;
  */
 
 @Service(interfaceClass = CheckGroupService.class)
-@Transactional(propagation= Propagation.REQUIRED,isolation= Isolation.DEFAULT)
+@Transactional
 public class CheckGroupServiceImpl implements CheckGroupService {
     @Autowired
-    //自动按照类型装配。
     private CheckGroupDao checkGroupDao;
     //新增检查组，同时需要让检查组关联检查项
     public void add(CheckGroup checkGroup, Integer[] checkitemIds) {
@@ -33,7 +30,7 @@ public class CheckGroupServiceImpl implements CheckGroupService {
         checkGroupDao.add(checkGroup);
         //设置检查组和检查项的多对多的关联关系，操作t_checkgroup_checkitem表
         Integer checkGroupId = checkGroup.getId();
-        this.setCheckGroupAndCheckItem(checkGroupId,checkitemIds);//设置二者的对应关系。检查组和检查项。
+        this.setCheckGroupAndCheckItem(checkGroupId,checkitemIds);
     }
 
     //分页查询
@@ -72,14 +69,14 @@ public class CheckGroupServiceImpl implements CheckGroupService {
         return checkGroupDao.findAll();
     }
 
-    //建立检查组和检查项多对多关系， 一个检查组id里面多个检查项。
+    //建立检查组和检查项多对多关系
     public void setCheckGroupAndCheckItem(Integer checkGroupId,Integer[] checkitemIds){
         if(checkitemIds != null && checkitemIds.length > 0){
-            for (Integer checkitemId : checkitemIds) {//增强for循环。
+            for (Integer checkitemId : checkitemIds) {
                 Map<String,Integer> map = new HashMap<>();
                 map.put("checkgroupId",checkGroupId);
                 map.put("checkitemId",checkitemId);
-                checkGroupDao.setCheckGroupAndCheckItem(map);//每次循环调用的话，key是唯一的。
+                checkGroupDao.setCheckGroupAndCheckItem(map);
             }
         }
     }

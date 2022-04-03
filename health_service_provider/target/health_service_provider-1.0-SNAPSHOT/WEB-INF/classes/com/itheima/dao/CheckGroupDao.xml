@@ -35,7 +35,7 @@
         (#{code},#{name},#{sex},#{helpCode},#{remark},#{attention})
     </insert>
 
-    <!--设置检查组和检查项多对多关系    自动识别map中的key拿到value的值替换。-->
+    <!--设置检查组和检查项多对多关系-->
     <insert id="setCheckGroupAndCheckItem" parameterType="map">
         insert into t_checkgroup_checkitem(checkgroup_id,checkitem_id)
         values

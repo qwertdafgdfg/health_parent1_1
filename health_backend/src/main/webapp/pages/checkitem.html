@@ -50,7 +50,6 @@
                     </el-table>
                     <div class="pagination-container">
                         <el-pagination
-                                current-change：内置的事件，当前页码改变时会触发，可以获取到改变之后的页码
                             class="pagiantion"
                             @current-change="handleCurrentChange"
                             :current-page="pagination.currentPage"
@@ -209,7 +208,6 @@
         var vue = new Vue({
             el: '#app',
             data:{
-                //定义的数据类型
                 pagination: {//分页相关模型数据
 					  currentPage: 1,//当前页码
 					  pageSize:10,//每页显示的记录数

@@ -19,18 +19,17 @@ import java.util.List;
 @Service(interfaceClass = CheckItemService.class)
 @Transactional
 public class CheckItemServiceImpl implements CheckItemService {
-    //注入DAO对象，自动装配
+    //注入DAO对象
     @Autowired
     private CheckItemDao checkItemDao;
-
     public void add(CheckItem checkItem) {
         checkItemDao.add(checkItem);
     }
 
     //检查项分页查询
     public PageResult pageQuery(QueryPageBean queryPageBean) {
-        Integer currentPage = queryPageBean.getCurrentPage();//1
-        Integer pageSize = queryPageBean.getPageSize();//10   从页面上得到的。
+        Integer currentPage = queryPageBean.getCurrentPage();
+        Integer pageSize = queryPageBean.getPageSize();
         String queryString = queryPageBean.getQueryString();//查询条件
         //完成分页查询，基于mybatis框架提供的分页助手插件完成
         PageHelper.startPage(currentPage,pageSize);
@@ -46,8 +45,8 @@ public class CheckItemServiceImpl implements CheckItemService {
         //判断当前检查项是否已经关联到检查组
         long count = checkItemDao.findCountByCheckItemId(id);
         if(count > 0){
-            //当前检查项已经被关联到检查组，不允许删除,
-            new RuntimeException("当前检查项被引用，不能删除");
+            //当前检查项已经被关联到检查组，不允许删除
+            new RuntimeException();
         }
         checkItemDao.deleteById(id);
     }

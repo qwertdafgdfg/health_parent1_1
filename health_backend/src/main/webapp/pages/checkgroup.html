@@ -262,14 +262,14 @@
         var vue = new Vue({
             el: '#app',
             data:{
-                activeName:'second',//添加/编辑窗口Tab标签名称first
+                activeName:'first',//添加/编辑窗口Tab标签名称
                 pagination: {//分页相关属性
                     currentPage: 1,
                     pageSize:10,
                     total:100,
                     queryString:null,
                 },
-                dataList: [],//分页的列表数据
+                dataList: [],//列表数据
                 formData: {},//表单数据
                 tableData:[],//新增和编辑表单中对应的检查项列表数据
                 checkitemIds:[],//新增和编辑表单中检查项对应的复选框，基于双向绑定可以进行回显和数据提交
@@ -302,8 +302,8 @@
                 },
                 //添加
                 handleAdd () {
-                    alert(this.checkitemIds);
-                    //发送ajax请求，将表单数据提交到后台进行处理   这里采用了url拼接和post参数混合的方式。
+                    //alert(this.checkitemIds);
+                    //发送ajax请求，将表单数据提交到后台进行处理
                     axios.post("/checkgroup/add.do?checkitemIds=" + this.checkitemIds,this.formData).then((res) => {
                         //关闭新增窗口
                         this.dialogFormVisible = false;
@@ -343,15 +343,15 @@
                 },
                 // 弹出添加窗口
                 handleCreate() {
-                    this.resetForm();//清空原框的数据。
+                    this.resetForm();
                     this.dialogFormVisible = true;
-                    //发送ajax请求，查询所有的检查项信息，转为json，赋值给tableData，这里是不是要分页？
+                    //发送ajax请求，查询所有的检查项信息，转为json，赋值给tableData
                     this.activeName = 'first';//默认选中first对应的tab
-                    this.checkitemIds = [];//重置检查项信息tab页面的复选框
+                    this.checkitemIds = [];//重置复选框
                     axios.get("/checkitem/findAll.do").then((res) => {
                         if(res.data.flag){
                             //查询检查项数据成功
-                            this.tableData = res.data.data;//vue的双向绑定给检查项信息tab页面的复选框赋值。
+                            this.tableData = res.data.data;
                         }else{
                             //查询检查项数据失败
                             this.$message.error(res.data.message);
