@@ -1,0 +1,48 @@
+统计报表思路及 sql 语句
+	1) 会员数量
+		思路:
+			java 生成日期集合,逐个查询数据库统计
+			select count(id) from  t_member where regTime<= 'date'
+	2)  套餐预约占比饼形图
+		sql 
+
+			-- 只查询有的
+				
+				SELECT s.name,COUNT(s.id) 'value' FROM t_order  o , t_setmeal s  WHERE s.`id`= o.`setmeal_id`
+				GROUP BY  s.`name`
+
+				-- 查询全部
+
+				SELECT s.name,COUNT(o.id) FROM  t_setmeal s  LEFT JOIN   t_order  o ON  s.`id`= o.`setmeal_id`  
+				GROUP BY  s.`name`
+
+
+				SELECT s.name,COUNT(o.id) FROM   t_order  o   RIGHT JOIN  t_setmeal s ON  s.`id`= o.`setmeal_id`  
+				GROUP BY  s.`name`
+	3) 报表 
+		1) 热门套餐
+		
+	
+
+				SELECT s.name,COUNT(s.id) 'value' , COUNT(s.id)/(SELECT COUNT(id) FROM t_order) proportion FROM t_order  o , t_setmeal s  WHERE s.`id`= o.`setmeal_id`
+				GROUP BY  s.`name`   ORDER BY  VALUE DESC LIMIT 0,2
+				-- sql  关键词
+				SELECT 
+				FROM 
+				WHERE
+				GROUP BY 
+				HAVING 
+				ORDER BY 
+				LIMIT 
+
+				-- 解析顺序
+
+				FROM 
+				WHERE
+				GROUP BY 
+				HAVING 
+				SELECT 
+				ORDER BY 
+				LIMIT 
+		
+		

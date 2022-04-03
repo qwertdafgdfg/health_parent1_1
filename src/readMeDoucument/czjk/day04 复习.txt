@@ -1,0 +1,42 @@
+day01-03技术总结
+	1)vue +elementUI (html js )
+	2)ssm +dubbo +zookeeper
+	3)mysql 
+	4)管理工具 git(分支)+maven 
+	5)设计工具 PD
+	6)linux 部署环境
+-----面试题---------
+0) 自我介绍
+1) 讲讲项目 业务+技术
+3) soa 架构  // dubbo工作流程?  
+	答案: 三角流程图
+4) 讲讲 spring ?
+   核心 IOC /AOP/ 
+   web   springmvc
+		  springmvc流程图  10 步骤
+   jdbc  springjdbc/
+5)  你们的项目是不是前后端分离?
+	传智健康严格意义不是,学成才是
+---------------
+6) 七牛云 存储 
+7) 阿里云 短信
+8) 微信公众号
+---------------
+9) poi  office
+10)  quaterZ  定时任务// cron 表达式 
+
+秒  分钟  小时 day   month  week 
+1-10  *    *    1     *       ?
+ 
+11) freemaker 静态化
+12) redis --缓存
+    redis --全局session 
+ 
+--------------
+
+
+
+
+
+
+
