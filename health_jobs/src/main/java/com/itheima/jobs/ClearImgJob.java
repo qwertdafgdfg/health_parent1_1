@@ -2,7 +2,6 @@ package com.itheima.jobs;
 
 import com.itheima.constant.RedisConstant;
 import com.itheima.utils.QiniuUtils;
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import redis.clients.jedis.JedisPool;
 
@@ -27,10 +26,5 @@ public class ClearImgJob {
                 System.out.println("自定义任务执行，清理垃圾图片:" + picName);
             }
         }
-    }
-
-    @Test
-    public void Test(){
-        QiniuUtils.deleteFileFromQiniu("");
     }
 }
