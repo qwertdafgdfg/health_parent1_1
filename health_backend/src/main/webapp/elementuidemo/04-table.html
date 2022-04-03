@@ -11,7 +11,6 @@
 </head>
 <body>
     <div id="app">
-<!--        标签标记语句-->
         <el-table :data="tableData" stripe>
             <el-table-column prop="date" label="日期"></el-table-column>
             <el-table-column prop="name" label="姓名"></el-table-column>
@@ -35,8 +34,7 @@
                 //定义VUE对象的模型数据，用于table展示
                 tableData:[
                     {date:'2019.10.10',name:'小明',address:'北京'},//每个json对象对应表格中一条数据
-                    {date:'2019.10.10',name:'小李',address:'南京'},
-                    {date:'2021.10.10',name:'小o',address:'dong京'}
+                    {date:'2019.10.10',name:'小李',address:'南京'}
                 ]
             },
             methods:{
